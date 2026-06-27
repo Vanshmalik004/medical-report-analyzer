@@ -119,7 +119,7 @@ export async function GET() {
 
     return NextResponse.json({
       success: true,
-      reports: reports.map((r) => ({
+      reports: reports.map((r: any) => ({
         ...r,
         summary: JSON.parse(r.summary),
       })),

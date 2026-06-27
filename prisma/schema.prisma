@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  reports   Report[]
+}
+
+model Report {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fileName   String
+  fileType   String
+  reportName String
+  summary    String   @db.Text // Store JSON string of short summary bullet points
+  findings   String   @db.Text // Store JSON string of biomarker details
+  severity   String   // "Normal", "Moderate", "Critical"
+  alerts     String   @db.Text // Store JSON string of alert messages
+  createdAt  DateTime @default(now())
+
+  @@index([userId])
+}

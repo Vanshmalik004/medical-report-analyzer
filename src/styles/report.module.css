@@ -1,0 +1,336 @@
+.reportContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+}
+
+.reportHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+  .reportHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.headerInfo h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.headerMeta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: 1rem;
+}
+
+.actionsArea {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.voiceBtn {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: transform var(--transition-fast);
+}
+
+.voiceBtn:hover {
+  transform: scale(1.05);
+}
+
+.voiceActive {
+  animation: pulse 1s infinite;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Alert Boxes */
+.alertBox {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border-left: 4px solid;
+  margin-bottom: 1.5rem;
+}
+
+.alertCritical {
+  background-color: var(--critical-bg);
+  border-color: var(--critical-color);
+  color: var(--critical-color);
+}
+
+.alertWarning {
+  background-color: var(--warning-bg);
+  border-color: var(--warning-color);
+  color: #a16207; /* Darker gold text for accessibility */
+}
+
+.alertNormal {
+  background-color: var(--success-bg);
+  border-color: var(--success-color);
+  color: #15803d; /* Darker green text */
+}
+
+.alertIcon {
+  font-size: 1.25rem;
+  margin-top: 2px;
+}
+
+.alertContent h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.alertContent p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Overview Layout */
+.overviewLayout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .overviewLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.summaryCard {
+  height: 100%;
+}
+
+.summaryTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+}
+
+.summaryList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.summaryItem {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.summaryIcon {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-top: 3px;
+}
+
+.severityCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.severityMeter {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-full);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border: 8px solid;
+  position: relative;
+}
+
+.severityLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.severityValue {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.severityValueNormal { color: var(--success-color); }
+.severityValueModerate { color: var(--warning-color); }
+.severityValueCritical { color: var(--critical-color); }
+
+.meterNormal { border-color: var(--success-color); background-color: var(--success-bg); }
+.meterModerate { border-color: var(--warning-color); background-color: var(--warning-bg); }
+.meterCritical { border-color: var(--critical-color); background-color: var(--critical-bg); }
+
+/* Findings Table */
+.findingsCard {
+  margin-top: 1.5rem;
+}
+
+.biomarkerTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.biomarkerTh {
+  background-color: var(--bg-primary);
+  padding: 0.85rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.biomarkerTd {
+  padding: 0.85rem 1rem;
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.biomarkerTr:last-child .biomarkerTd {
+  border-bottom: none;
+}
+
+.biomarkerName {
+  font-weight: 600;
+}
+
+.biomarkerStatus {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.statusNormal {
+  background-color: var(--success-bg);
+  color: var(--success-color);
+}
+
+.statusHigh {
+  background-color: var(--critical-bg);
+  color: var(--critical-color);
+}
+
+.statusLow {
+  background-color: #eff6ff; /* light blue */
+  color: #1d4ed8; /* blue */
+}
+
+/* Charts Card */
+.chartsCard {
+  margin-top: 1.5rem;
+}
+
+.chartContainer {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.chartSelector {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.selectorBtn {
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+.selectorBtnActive {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.chartWrapper {
+  width: 100%;
+  height: 250px;
+  background-color: var(--bg-primary);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  position: relative;
+}
+
+.svgChart {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+  .reportHeader {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  .actionsArea, .voiceBtn, .chartSelector, .chartsCard {
+    display: none !important;
+  }
+  .card {
+    border: none;
+    box-shadow: none !important;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+  .overviewLayout {
+    grid-template-columns: 1fr;
+  }
+}
